@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     public Text timeTxt;
     public Text FailNumTxt;
     public Text TotalNumTxt;
+    public GameObject failTxt;
     public GameObject endTxt;
     public GameManager gameManager;
     public GameObject NumCanvas;
@@ -45,7 +46,15 @@ public class UIManager : MonoBehaviour
         SetNumCanvas();
         NumCanvas.SetActive(true);
         Time.timeScale = 0;
-        endTxt.SetActive(true);
+        if (TimeOver)
+        {
+            failTxt.SetActive(true);
+
+        }
+        else
+        {
+            endTxt.SetActive(true);
+        }
     }
 
     public void PlusNumFail()
